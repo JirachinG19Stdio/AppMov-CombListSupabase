@@ -1,29 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Paso 8: fila de alumno, ahora como tarjeta -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="12dp">
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
-    <TextView
-        android:id="@+id/txtNombre"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:clickable="false"
+        android:focusable="false"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/borde_suave"
+        app:strokeWidth="1dp">
 
-    <TextView
-        android:id="@+id/txtCorreo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#555555"
-        android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp">
 
-    <TextView
-        android:id="@+id/txtTelefono"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#555555"
-        android:textSize="14sp" />
-</LinearLayout>
+            <!-- Foto con aro de colores: el fondo degradado asoma 3dp alrededor -->
+            <FrameLayout
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:background="@drawable/bg_aro_foto"
+                android:padding="3dp">
+
+                <ImageView
+                    android:id="@+id/imgFoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Foto del alumno"
+                    android:scaleType="centerCrop" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/uteq_verde"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:drawablePadding="6dp"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:textColor="@color/texto_secundario"
+                    android:textSize="13sp"
+                    app:drawableStartCompat="@drawable/ic_correo"
+                    app:drawableTint="@color/uteq_verde" />
+
+                <TextView
+                    android:id="@+id/txtTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:drawablePadding="6dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/texto_secundario"
+                    android:textSize="13sp"
+                    app:drawableStartCompat="@drawable/ic_telefono"
+                    app:drawableTint="@color/uteq_dorado" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</FrameLayout>

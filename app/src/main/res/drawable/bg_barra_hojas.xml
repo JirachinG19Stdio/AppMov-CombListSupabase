@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barrita dorada, como las líneas del logo -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="0"
+        android:endColor="@color/uteq_dorado"
+        android:startColor="@color/uteq_dorado_claro" />
+    <corners android:radius="2dp" />
+</shape>

@@ -5,70 +5,161 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/uteq_verde"
     tools:context=".ActividadSeleccion">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="163dp"
-        android:layout_height="73dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logouteq" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtListaniveles"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
+    <!-- ===== Cabecera azul petróleo ===== -->
+    <LinearLayout
+        android:id="@+id/cabecera"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Semestre"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <AutoCompleteTextView
-            android:id="@+id/listaNiveles"
-            android:layout_width="match_parent"
+        <!-- Logo en una tarjeta blanca (el logo tiene letras oscuras) -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="none"
-            app:simpleItems="@array/niveles" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtListaMaterias"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Materias"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtListaniveles">
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_margin="8dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="Logo UTEQ"
+                app:srcCompat="@drawable/logouteq" />
+        </com.google.android.material.card.MaterialCardView>
 
-        <AutoCompleteTextView
-            android:id="@+id/listaMaterias"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="none" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lvAlumnos"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gestión Académica"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Software · 6to semestre A"
+                android:textColor="@color/uteq_verde_claro"
+                android:textSize="13sp" />
+
+            <!-- Barrita con los colores de las hojas del logo -->
+            <View
+                android:layout_width="64dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_barra_hojas" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ===== Panel claro con esquinas redondeadas ===== -->
+    <LinearLayout
+        android:id="@+id/panel"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_hoja"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtListaMaterias" />
+        app:layout_constraintTop_toBottomOf="@+id/cabecera">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="8dp"
+            android:letterSpacing="0.08"
+            android:text="FILTRAR MATERIAS"
+            android:textColor="@color/texto_secundario"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- Paso 3: selector de semestre -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtListaniveles"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Semestre"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxStrokeColor="@color/uteq_verde"
+            app:startIconDrawable="@drawable/ic_semestre"
+            app:startIconTint="@color/uteq_dorado">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/listaNiveles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                app:simpleItems="@array/niveles" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Paso 7: selector de materias -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtListaMaterias"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Materia"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxStrokeColor="@color/uteq_verde"
+            app:startIconDrawable="@drawable/ic_materia"
+            app:startIconTint="@color/uteq_verde">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/listaMaterias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Paso 10: lista de alumnos (cada fila es una tarjeta) -->
+        <ListView
+            android:id="@+id/lvAlumnos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:listSelector="@android:color/transparent"
+            android:paddingBottom="16dp"
+            android:scrollbars="none" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

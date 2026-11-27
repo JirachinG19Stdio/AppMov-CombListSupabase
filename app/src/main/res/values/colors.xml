@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta institucional UTEQ (verde y dorado) -->
+    <color name="uteq_verde">#00883A</color>
+    <color name="uteq_verde_oscuro">#006B2D</color>
+    <color name="uteq_verde_claro">#DCF0E2</color>
+    <color name="uteq_dorado">#E0A825</color>
+    <color name="uteq_dorado_claro">#F3D27A</color>
+
+    <color name="fondo">#F3F6F4</color>
+    <color name="texto_principal">#1D2B22</color>
+    <color name="texto_secundario">#5E6E64</color>
+    <color name="borde_suave">#E0E8E3</color>
 </resources>
